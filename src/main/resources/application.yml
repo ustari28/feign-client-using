@@ -1,0 +1,18 @@
+server:
+  port: 9401
+spring:
+  application:
+    name: client-use-feign-${server.port}
+#Set up URL for feign client
+client:
+  server:
+    url: http://localhost:9400
+#Register into eureka server.
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8780/eureka/
+#Disable ribbon balancing
+ribbon:
+  eureka:
+    enabled: false
